@@ -41,6 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rerun'
 end
 
 group :development do
@@ -61,8 +62,6 @@ group :test do
   gem 'rails-controller-testing'
   gem 'minitest'
   gem 'minitest-reporters'
-  gem 'guard'
-  gem 'guard-minitest'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
