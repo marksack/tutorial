@@ -69,3 +69,4 @@ end
 
 gem 'pg'
 gem 'jquery-rails'
+gem 'bootstrap'
