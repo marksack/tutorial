@@ -58,9 +58,8 @@ p {
 
 /* header */
 
-#logo {
-  float: left;
-  margin-right: 10px;
+.tutorial-brand {
+  @extend .navbar-brand;
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
@@ -68,15 +67,8 @@ p {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: #eee;
     text-decoration: none;
-  }
-}
-
-header .nav-link {
-  color: white;
-  &:hover {
-    background-color: #777;
   }
 }
 
