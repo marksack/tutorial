@@ -173,3 +173,15 @@ input {
     border: 1px solid salmon;
   }
 }
+
+.form-check-label-extended {
+  @extend .form-check-label;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.form-check-input-extended {
+  @extend .form-check-input;
+  width: 30px;
+  margin-left: -27px;
+}
