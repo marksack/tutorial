@@ -3,11 +3,25 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$gray-lighter: #f8f8f8;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#main-wrapper {
+  box-sizing: border-box;
+  min-height: 100%;
+  padding: 0 0 75px;
+  position: relative;
 }
 
 .content {
@@ -74,11 +88,15 @@ p {
 
 /* footer */
 
-.footer {
-  position: absolute;
+footer {
   bottom: 0;
-  width: 100%;
   height: 75px;
+  left: 0;
+  position: absolute !important;
+  width: 100%;
+}
+
+.footer {
   line-height: 60px;
   small {
     float: left;
@@ -98,16 +116,6 @@ p {
   &:hover {
     background-color: #eee;
   }
-}
-
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
 }
 
 /* sidebar */
@@ -184,4 +192,16 @@ input {
   @extend .form-check-input;
   width: 30px;
   margin-left: -27px;
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }
