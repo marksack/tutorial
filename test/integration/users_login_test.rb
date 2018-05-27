@@ -18,7 +18,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test 'login with valid information followed by logout' do
     get login_path
     post login_path, params: { session: { email: @user.email, password: 'password' } }
-    !session[:user_id].nil?
+    eval(ASSERT_LOGGED_IN)
     assert_redirected_to @user
     follow_redirect!
     assert_template 'users/show'
@@ -26,7 +26,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', logout_path
     assert_select 'a[href=?]', user_path(@user)
     delete logout_path
-    session[:user_id].nil?
+    eval(ASSERT_NOT_LOGGED_IN)
     assert_redirected_to root_url
     delete logout_path
     follow_redirect!

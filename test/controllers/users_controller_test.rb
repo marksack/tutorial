@@ -4,6 +4,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:test1)
     @other_user = users(:test2)
+    @not_activated = users(:not_activated)
+    @admin = users(:admin)
   end
 
   test 'should redirect index when not logged in' do
@@ -64,6 +66,20 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@other_user)
     assert_no_difference 'User.count' do
       delete user_path(@user)
+    end
+    assert_redirected_to root_url
+  end
+
+  test 'should redirect show for user who is not activated' do
+    log_in_as(@user)
+    get user_path(@not_activated)
+    assert_redirected_to root_url
+  end
+
+  test 'should redirect destroy for user who is not activated' do
+    log_in_as(@admin)
+    assert_no_difference 'User.count' do
+      delete user_path(@not_activated)
     end
     assert_redirected_to root_url
   end
