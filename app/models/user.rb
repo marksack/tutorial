@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   validates_presence_of :name
   validates :name, length: { maximum: 50 }
 
@@ -45,6 +45,24 @@ class User < ApplicationRecord
   def send_activation_email
     activation_token = self.activation_token
     UserMailer.account_activation(self, activation_token).deliver_later
+  end
+
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self, reset_token).deliver_later
+  end
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+
+  def reset_password(params)
+    params[:reset_sent_at] = 10.years.ago
+    update_attributes(params)
   end
 
   private
