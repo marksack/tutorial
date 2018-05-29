@@ -4,7 +4,7 @@
   <span class="content">
     <%= micropost.content %>
     <% if micropost.picture.attached? %>
-      <%= image_tag micropost.picture %>
+      <%= image_tag micropost.picture.variant(resize: "400x400\>") %>
     <% end %>
   </span>
   <span class="timestamp">
