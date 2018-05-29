@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+
   attr_accessor :remember_token, :activation_token, :reset_token
   validates_presence_of :name
   validates :name, length: { maximum: 50 }
@@ -63,6 +65,10 @@ class User < ApplicationRecord
   def reset_password(params)
     params[:reset_sent_at] = 10.years.ago
     update_attributes(params)
+  end
+
+  def feed
+    Micropost.where('user_id = ?', id)
   end
 
   private
