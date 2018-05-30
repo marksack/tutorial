@@ -28,6 +28,13 @@ test4:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+test5:
+  name: Test User 5
+  email: test5@example.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 not_activated:
   name: Not Activated User
   email: notacivated@example.com

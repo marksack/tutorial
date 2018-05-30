@@ -21,4 +21,14 @@ namespace :users do
                    activated_at: Time.zone.now)
     end
   end
+
+  desc 'Add following relationships'
+  task following_relationships: :environment do
+    users = User.all
+    user  = users.first
+    following = users[2..50]
+    followers = users[3..40]
+    following.each { |followed| user.follow(followed) }
+    followers.each { |follower| follower.follow(user) }
+  end
 end

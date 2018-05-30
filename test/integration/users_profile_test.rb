@@ -13,6 +13,8 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_select 'title', full_title(@user.name)
     assert_select 'h1', text: @user.name
     assert_select 'h1>img.gravatar'
+    assert_select '[id=following]', text: '3'
+    assert_select '[id=followers]', text: '2'
     assert_match @user.microposts.count.to_s, response.body
     assert_select 'ul.pagination', count: 1
     @user.microposts.paginate(page: 1).each do |micropost|
