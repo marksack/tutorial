@@ -14,8 +14,8 @@ default: &default
 development:
   <<: *default
   database: tutorial_development
-  username: tutorial
-  password: snafu123
+  username: <%= ENV['RAILS_DB_USER'] %>
+  password: <%= ENV['RAILS_DB_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,8 +23,8 @@ development:
 test:
   <<: *default
   database: tutorial_test
-  username: tutorial
-  password: snafu123
+  username: <%= ENV['RAILS_DB_USER'] %>
+  password: <%= ENV['RAILS_DB_PASSWORD'] %>
 
 production:
   <<: *default
