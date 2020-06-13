@@ -5,9 +5,9 @@ the Ruby on Rails Tutorial (4th edition) (http://www.railstutorial.org/) by Mich
 
 It deviates from the book in the following ways:
 
-* Rails 5.2.2.1 instead of 5.1.4
-* Ruby 2.6.2
-* Bootstrap 4.3.1 instead of 3.3.7
+* Rails 6.0.3.1
+* Ruby 2.7.1
+* Bootstrap 4.5
 * Active Storage instead of Carrierwave
 * Mailcatcher https://mailcatcher.me/ instead of mail previews and Heroku
 * Implementation of exercises (for the most part)

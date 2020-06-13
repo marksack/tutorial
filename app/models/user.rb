@@ -70,7 +70,7 @@ class User < ApplicationRecord
 
   def reset_password(params)
     params[:reset_sent_at] = 10.years.ago
-    update_attributes(params)
+    update(params)
   end
 
   def feed

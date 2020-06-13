@@ -1,4 +1,4 @@
 inherit_from: .rubocop_todo.yml
 
 Layout/IndentationConsistency:
-  EnforcedStyle: rails
+  EnforcedStyle: indented_internal_methods
