@@ -5,7 +5,7 @@ the Ruby on Rails Tutorial (4th edition) (http://www.railstutorial.org/) by Mich
 
 It deviates from the book in the following ways:
 
-* Rails 6.0.3.1
+* Rails 6.0.3.2
 * Ruby 2.7.1
 * Bootstrap 4.5
 * Active Storage instead of Carrierwave
